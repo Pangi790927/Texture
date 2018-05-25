@@ -79,12 +79,14 @@ public:
 	}
 
 	void allocateTexture() {
-		textureData = std::shared_ptr<unsigned char>(new unsigned char[width * height * pixelSize]);
+		textureData = std::shared_ptr<unsigned char>(
+				new unsigned char[width * height * pixelSize]);
 	}
 
 	void alocateSpace() {
-		textureData = std::shared_ptr<unsigned char>(new unsigned char[width * height * pixelSize]
-							, array_deleter<unsigned char>()); 
+		textureData = std::shared_ptr<unsigned char>(
+				new unsigned char[width * height * pixelSize],
+				array_deleter<unsigned char>());
 	}
 
 	int dataSize() {
@@ -116,24 +118,24 @@ public:
 			throw std::runtime_error("Invalid Pixel Format");
 		}
 		else if (pixelSize == 1 || pixelSize == 2) {
-			format = GL_ALPHA;  
+			format = GL_ALPHA;
 		}
 		else if (pixelSize == 3) {
-			format = GL_RGB;  
+			format = GL_RGB;
 		}
 		else if (pixelSize == 4) {
-			format = GL_RGBA;  
+			format = GL_RGBA;
 		}
 
 		glTexImage2D(
-			GL_TEXTURE_2D, 
-			0, 
-			format, 
-			width, 
-			height, 
-			0, 
-			format, 
-			GL_UNSIGNED_BYTE, 
+			GL_TEXTURE_2D,
+			0,
+			format,
+			width,
+			height,
+			0,
+			format,
+			GL_UNSIGNED_BYTE,
 			textureData.get()
 		);
 

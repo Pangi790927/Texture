@@ -13,9 +13,9 @@ int main(int argc, char const *argv[])
 		{GL_FRAGMENT_SHADER, "textureShader.frag"}
 	});
 
-	exampleProg.setMatrix("projectionMatrix", Math::ident<4, float>());
-	exampleProg.setMatrix("viewMatrix", Math::ident<4, float>());
-	exampleProg.setMatrix("worldMatrix", Math::ident<4, float>());
+	exampleProg.setMatrix("projectionMatrix", Math::identity<4, float>());
+	exampleProg.setMatrix("viewMatrix", Math::identity<4, float>());
+	exampleProg.setMatrix("worldMatrix", Math::identity<4, float>());
 
 	exampleProg.setVector("uColor", Math::Vec4f(1, 1, 1, 1));
 
